@@ -20,8 +20,6 @@ Foreach ($Service in $Services) {
             $exePathQuoted = "`"" + $Service.PathName + "`""
         }
 
-        Write-Output "Processing ICACLS for path: $exePathQuoted"
-
         $exePathForTest = $Service.PathName.Trim('"')
         if (Test-Path -LiteralPath $exePathForTest) {
             $icaclsCommand = "icacls $exePathQuoted"
